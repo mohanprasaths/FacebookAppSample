@@ -6,7 +6,7 @@ class App extends React.Component {
          <div>
             Hello Worldss!!!
             <div
-              class="fb-like"
+              className="fb-like"
               data-share="true"
               data-width="450"
               data-show-faces="true">
