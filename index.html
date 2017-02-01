@@ -28,7 +28,7 @@
 	FB.getLoginStatus(function(res){return res.status})
 </script>
    <body>
-<fb:login-button scope="public_profile" onlogin="checkLoginState();">
+<fb:login-button scope="public_profile,user_friends">
 </fb:login-button>
       <div id = "app"></div>
       <script src = "index.js"></script>
