@@ -1,8 +1,13 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang = "en" class="height100">
 
    <head>
      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+     <link rel="stylesheet" type="text/css" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+     <link rel="stylesheet" type="text/css" href="styles.css">
+
+     <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
 <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -25,12 +30,10 @@
       <title>React App</title>
    </head>
 <script type="text/javascript">
-	FB.getLoginStatus(function(res){return res.status})
 </script>
-   <body>
-<fb:login-button scope="public_profile,user_friends">
-</fb:login-button>
-      <div id = "app"></div>
+   <body style="height:100%">
+
+      <div class="height100" id = "app"></div>
       <script src = "index.js"></script>
    </body>
 

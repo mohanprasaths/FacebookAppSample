@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --hot",
-      "deploy" : "gh-pages -d build",
-      "build" : "webpack -p --config ./webpack.config.js"
+    "deploy": "gh-pages -d build",
+    "build": "webpack -p --config ./webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -20,8 +20,16 @@
   },
   "homepage": "https://github.com/mohanprasaths/FacebookAppSample#readme",
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-facebook-login": "^3.4.3",
+    "react-redux": "^5.0.2",
+    "react-router": "^3.0.2",
+    "react-router-redux": "^4.0.7",
+    "redux": "^3.6.0",
+    "redux-logger": "^2.8.1",
+    "redux-thunk": "^2.2.0",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^1.16.3"
   }

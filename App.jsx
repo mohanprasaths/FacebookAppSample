@@ -1,16 +1,11 @@
 import React from 'react';
+import AppMainPage from './components/AppMainPage.jsx'
 
 class App extends React.Component {
    render() {
       return (
-         <div>
-            Hello Worldss!!!
-            <div
-              className="fb-like"
-              data-share="true"
-              data-width="450"
-              data-show-faces="true">
-            </div>
+         <div className="height100">
+         <AppMainPage />
          </div>
       );
    }

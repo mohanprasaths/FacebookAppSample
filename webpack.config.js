@@ -6,10 +6,11 @@ var config = {
       filename: 'index.js',
    },
 	
-   devServer: {
-      inline: true,
-      port: 8080
-   },
+devServer: {
+    historyApiFallback: true,
+    contentBase: './',
+    hot: true
+  },
 	
    module: {
       loaders: [
