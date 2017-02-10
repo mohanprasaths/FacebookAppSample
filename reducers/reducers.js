@@ -1,4 +1,4 @@
-import {LOGIN} from '../actions/actionTypes.js'
+import {LOGIN,MYPROFILE} from '../actions/actionTypes.js'
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { combineReducers } from 'redux'
 
@@ -6,6 +6,7 @@ import { combineReducers } from 'redux'
 function basic(state={},action){
 		switch(action.type){
 		case LOGIN : 	{ return Object.assign({},state,{loginInfo : action.data});}
+		case MYPROFILE : 	{ return Object.assign({},state,{profileInfo : action.data});}
 		default : return state;
 	}
 }

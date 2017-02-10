@@ -1,7 +1,7 @@
 import React from 'react';
 	import FacebookLogin from 'react-facebook-login';
 import {connect} from 'react-redux';
-import {getLoginInfo} from '../actions/actions.js'
+import {getLoginInfo,getUserInfo} from '../actions/actions.js'
 
 
 var App = React.createClass({
@@ -21,7 +21,7 @@ pushToMainQuestions : function(){
            fields="name,email,picture"
           scope="public_profile,user_friends,user_actions.books"
           textButton="Play" 
-          callback={pushToMainQuestions}/>
+          callback={this.pushToMainQuestions}/>
          </div>
          </div>
       );
@@ -30,13 +30,14 @@ pushToMainQuestions : function(){
 )
 const mapStateToProps = (state) => {
   return {
-  basic : state.basic.loginInfo,
+  basic : state.basic,
   }
 } 
 
 const mapDispatchToProps = (dispatch) => {
   return {
-  getInfo : ()=>{ dispatch(getLoginInfo()) }
+  getInfo : ()=>{ dispatch(getLoginInfo()) },
+  getUserInfo : ()=>{ dispatch(getUserInfo()) }
 
   }
 }
