@@ -19,7 +19,7 @@ export function getLoginInfo(){
 	  dispatch(LOGINUSER(logininfo))
 
 	  // Perform the actual API call
-	  return fetch(URL+'/me?oauth_token='+logininfo.data.authResponse.accessToken,{method:'GET',headers:{'Access-Control-Request-Headers': '*','Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}}).then(
+	  return fetch(URL+'/me?fields=picture{url,width,is_silhouette,height},education{school{name}},work{employer{name}},devices,cover{source},name&oauth_token='+logininfo.data.authResponse.accessToken,{method:'GET',headers:{'Access-Control-Request-Headers': '*','Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}}).then(
 	    response => {
 	      // Reducers may handle this to show the data and reset isFetching
 	      
@@ -50,4 +50,8 @@ export function PROFILE(data){
 
 export function LOGINUSER(data){
 	return data
+}
+
+export function FBLOGIN(){
+	return dispatch=>{FB.getLoginStatus(function(res){console.log(res);dispatch(getUserInfo(res))},function(res){console.log("found")})}
 }

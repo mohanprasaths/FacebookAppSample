@@ -1,12 +1,12 @@
 import React from 'react';
 	import FacebookLogin from 'react-facebook-login';
 import {connect} from 'react-redux';
-import {getLoginInfo,getUserInfo} from '../actions/actions.js'
+import {getLoginInfo,getUserInfo,FBLOGIN} from '../actions/actions.js'
 
 
 var App = React.createClass({
 pushToMainQuestions : function(){
-  this.props.getInfo();
+  this.props.FBLOGIN();
 },
    render() {
       return (
@@ -37,7 +37,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
   getInfo : ()=>{ dispatch(getLoginInfo()) },
-  getUserInfo : ()=>{ dispatch(getUserInfo()) }
+  getUserInfo : ()=>{ dispatch(getUserInfo()) },
+  FBLOGIN : ()=>{ dispatch(FBLOGIN()) }
 
   }
 }
