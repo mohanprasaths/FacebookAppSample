@@ -20,8 +20,8 @@ ReactDOM.render(
 	<Router history = {browserHistory}>
 	<Route path = "/FacebookAppSample/" component = {AppMainPage}>		
 	  <IndexRoute component = {ContentPage}/>
-	  <Route path = "questions" component = {QuestionsPage} />
-	  <Route path="answers" component={QuestionsPage}/>
+	  <Route path = "/FacebookAppSample/questions" component = {QuestionsPage} />
+	  <Route path="/FacebookAppSample/answers" component={QuestionsPage}/>
 	  <Route path="*" component={NotFound}/>
 	  	  <Route path="login" component={LoginPage}/>
 	  </Route>
