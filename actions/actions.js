@@ -8,7 +8,7 @@ export function getLoginInfo(){
 	var string = '{"status":"connected","authResponse":{"accessToken":"EAAIdhFdIIRoBAIg6FCKxAlSdepZBinZAF3xtx8VZBb9cXprGhgumh35x1ZCILMYqcuGn1vYFfcgwneQOIe9hvddukbOzJuAxYhFAlhHDKGDvH0ZA1h8nxpz4b5TD0d6zv0hS1ovYdsIO9huC7gnCpiLPQDZATP9Eh5pku0HdZBIoHZBS3lpxRMkpOb5RehPP3pQZD","userID":"1252367561518258","expiresIn":4165,"signedRequest":"38Ez9zuAFTEdeNAUcRcau9771AHZc9_FyNyf_epyLYg.eyJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImNvZGUiOiJBUUNLMHFSVHBnX3pVNWJaSXVyb2VmNXlvRm0tYkZXT1dhOEV3UGdCSTdueFJsaGViOUwwWUtXbjZiMHdWbFpCejJLN3A2RVJqeVRNTUZVamN5OHhNeDZIU0tlNjhkSTQ2M2RKbnE0VmwwT2ZHS1h0X21lLXJXMVNzck5UREp0R0xWV29rWFVycno1MVBDNjR6S2pMMXFzeUNmSlVZRkQteENzOXdVV3dKemtVZUFEVXBUR3hGdk14R3hoX2VtQ2lDTXZBVWkyTlVZZjFDenJ2eUJmTnN0STRjTDFyNWxOQThsVFIxMHQtOGxNSnE4bVd4OXhTVDlGZGlYR3RJQmxhYWo5MXNHTUhXM1BXYnJHQXB3bFVwMU1UNnhPaDVETFRQb1VzaFduX1NWUVR6dUxiWDB2SGpNYi01TFFuMVZsRFpSaEl4dGZFdXhuVEFwdTd5VVRWVl92SyIsImlzc3VlZF9hdCI6MTQ4NjcwNTgzNSwidXNlcl9pZCI6IjEyNTIzNjc1NjE1MTgyNTgifQ"}}'
 	var status = JSON.parse(string)
 	if(status.status=="connected"){
-		browserHistory.push('/questions');
+		browserHistory.push('/FacebookAppSample/questions');
 		var logininfo={
 		type:LOGIN,
 		data : status
