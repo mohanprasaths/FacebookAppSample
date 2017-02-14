@@ -10,6 +10,7 @@ componentDidMount:function(){
 	return(
 		<div>
 		{_.get(this.props,'basic.profileInfo.name',"User")}
+		Your Photo is
 		<img src={_.get(this.props,'basic.profileInfo.picture.data.url',"")} />
 		</div>
 		)

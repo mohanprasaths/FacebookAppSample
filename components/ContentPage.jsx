@@ -7,6 +7,7 @@ import {getLoginInfo,getUserInfo,FBLOGIN} from '../actions/actions.js'
 var App = React.createClass({
 pushToMainQuestions : function(){
   this.props.FBLOGIN();
+  this.props.getLoginInfo()
 },
    render() {
       return (
@@ -36,7 +37,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-  getInfo : ()=>{ dispatch(getLoginInfo()) },
+  getLoginInfo : ()=>{ dispatch(getLoginInfo()) },
   getUserInfo : ()=>{ dispatch(getUserInfo()) },
   FBLOGIN : ()=>{ dispatch(FBLOGIN()) }
 

@@ -18,10 +18,10 @@ let store = configureStore();
 ReactDOM.render(
 	<Provider store={store} >
 	<Router history = {browserHistory}>
-	<Route path = "/FacebookAppSample/" component = {AppMainPage}>		
+	<Route path = "/" component = {AppMainPage}>		
 	  <IndexRoute component = {ContentPage}/>
-	  <Route path = "/FacebookAppSample/questions" component = {QuestionsPage} />
-	  <Route path="/FacebookAppSample/answers" component={QuestionsPage}/>
+	  <Route path = "/questions" component = {QuestionsPage} />
+	  <Route path="/answers" component={QuestionsPage}/>
 	  <Route path="*" component={NotFound}/>
 	  	  <Route path="login" component={LoginPage}/>
 	  </Route>
