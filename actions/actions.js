@@ -5,10 +5,11 @@ import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 
 export function getLoginInfo(){
 	// var status = FB.getLoginStatus(function(res){return res})
-	var string = '{"status":"connected","authResponse":{"accessToken":"EAAIdhFdIIRoBAIg6FCKxAlSdepZBinZAF3xtx8VZBb9cXprGhgumh35x1ZCILMYqcuGn1vYFfcgwneQOIe9hvddukbOzJuAxYhFAlhHDKGDvH0ZA1h8nxpz4b5TD0d6zv0hS1ovYdsIO9huC7gnCpiLPQDZATP9Eh5pku0HdZBIoHZBS3lpxRMkpOb5RehPP3pQZD","userID":"1252367561518258","expiresIn":4165,"signedRequest":"38Ez9zuAFTEdeNAUcRcau9771AHZc9_FyNyf_epyLYg.eyJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImNvZGUiOiJBUUNLMHFSVHBnX3pVNWJaSXVyb2VmNXlvRm0tYkZXT1dhOEV3UGdCSTdueFJsaGViOUwwWUtXbjZiMHdWbFpCejJLN3A2RVJqeVRNTUZVamN5OHhNeDZIU0tlNjhkSTQ2M2RKbnE0VmwwT2ZHS1h0X21lLXJXMVNzck5UREp0R0xWV29rWFVycno1MVBDNjR6S2pMMXFzeUNmSlVZRkQteENzOXdVV3dKemtVZUFEVXBUR3hGdk14R3hoX2VtQ2lDTXZBVWkyTlVZZjFDenJ2eUJmTnN0STRjTDFyNWxOQThsVFIxMHQtOGxNSnE4bVd4OXhTVDlGZGlYR3RJQmxhYWo5MXNHTUhXM1BXYnJHQXB3bFVwMU1UNnhPaDVETFRQb1VzaFduX1NWUVR6dUxiWDB2SGpNYi01TFFuMVZsRFpSaEl4dGZFdXhuVEFwdTd5VVRWVl92SyIsImlzc3VlZF9hdCI6MTQ4NjcwNTgzNSwidXNlcl9pZCI6IjEyNTIzNjc1NjE1MTgyNTgifQ"}}'
+	var string = '{"status":"connected","authResponse":{"accessToken":"EAAIdhFdIIRoBAEkNjNvgtm4CJDmHMaghSnVdNUzFLDlX4WZBAuYshFJyEUtFoT13xIXxx770dakA9mW2ZA8KZB4737MLcyJB0OxUs1ZCueYFrofxF3eZAhOKDZBOZB8AxR8YNqaWtpYgFGIZA4xR4U8Jjz8ciGtTE2vZCZCZBP5gY9JFLRye46sGZAthITACGy8OPR8ZD","userID":"1252367561518258","expiresIn":5509,"signedRequest":"X_lSTtAJl9xlaKrLXqG7CJXsMOOhRZgUun0nEJulS3s.eyJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImNvZGUiOiJBUUNVcjM1czhrM0hPTTlXSl9xNXROSXhkU0tWLWNhRVB2eHd2Wm5QOE1DYUJFcmx5WVNCT2NzWTQ3ZWh3RXRoUzAyWXZ6UWlLQ0g0SlRpNDZZRUE3QTRkZFZYdmJwd1JNM1J4WGZXbHFNLWFYdUVqczVfVWZwLU03dVp6ZU9yTzVkZ0RoV0NOdWRkcEI4OWx6S0ZGenMzd25hbTBIY3U5XzVxRFFCYnAtYnB5enBMT05lM19wMlN0ZzFPeGdZeHRfTEp3OGY5SDliOExlemgwRWxsTXJoTElwS25KRy1aLXE1MGZXdm1GWkR4MW9mcDlQazhhVHZmMEk4WVZPaGlIcS1BS044U2FyUnJRcmhWa1hIc1lpc0tneHQzazg2TTdOZ0hDVHdERjlENVJQQzFKTW9sNjZxNVFibXZZUkpBcDVfck9lRXZzaHNnbExjQjBlR181M05XcyIsImlzc3VlZF9hdCI6MTQ4NzA3ODg5MSwidXNlcl9pZCI6IjEyNTIzNjc1NjE1MTgyNTgifQ"}}'
 	var status = JSON.parse(string)
 	if(status.status=="connected"){
-		browserHistory.push('/FacebookAppSample/questions');
+		console.log("found")
+		browserHistory.push('/questions');
 		var logininfo={
 		type:LOGIN,
 		data : status
@@ -38,7 +39,7 @@ export function getLoginInfo(){
 }
 }
 export function getUserInfo(){
-
+	console.log("fine")
 }
 
 export function PROFILE(data){
@@ -53,5 +54,5 @@ export function LOGINUSER(data){
 }
 
 export function FBLOGIN(){
-	return dispatch=>{FB.getLoginStatus(function(res){console.log(res);dispatch(getUserInfo(res))},function(res){console.log("found")})}
+	return dispatch=>{FB.getLoginStatus(function(res){console.log("cool");dispatch(getUserInfo(res))},function(res){console.log("found")})}
 }
