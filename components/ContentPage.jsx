@@ -7,17 +7,16 @@ import {getLoginInfo,getUserInfo,FBLOGIN} from '../actions/actions.js'
 var App = React.createClass({
 pushToMainQuestions : function(){
   this.props.FBLOGIN();
-  this.props.getLoginInfo()
 },
    render() {
       return (
       <div>
           <div className="row" > 
-            Guess you have passed test???		
+            Find which superhero will you be infinity warrior?	
           </div>
          <div className="row">
           <FacebookLogin
-          appId="595404190654746"
+          appId="407830199562454"
           autoLoad={true}
            fields="name,email,picture"
           scope="public_profile,user_friends,user_actions.books"

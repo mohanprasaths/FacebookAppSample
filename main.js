@@ -12,13 +12,14 @@ import myApp from './reducers/reducers'
 import {Provider } from 'react-redux'
 import configureStore from './configureStore'
 import {createStore} from 'redux'
+
 let store = configureStore();
 
 
 ReactDOM.render(
 	<Provider store={store} >
 	<Router history = {browserHistory}>
-	<Route path = "/FacebookAppSample/" component = {AppMainPage}>		
+	<Route path = "/" component = {AppMainPage}>		
 	  <IndexRoute component = {ContentPage}/>
 	  <Route path = "/questions" component = {QuestionsPage} />
 	  <Route path="/answers" component={QuestionsPage}/>

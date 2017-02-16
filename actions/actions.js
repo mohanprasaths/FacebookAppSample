@@ -1,7 +1,25 @@
-import {LOGIN,MYPROFILE} from './actionTypes.js'
+import {LOGIN,MYPROFILE,HERO} from './actionTypes.js'
 import fetch from 'isomorphic-fetch'
 const URL = 'https://graph.facebook.com/v2.8'
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
+var superHero = {
+	0:{name:"Iron Man",img:"ironman.jpg"},
+
+	1:{name:"Iron Man",img:"ironman.jpg"},
+	2:{name:"Captain America",img:"captain.jpg"},
+	3:{name:"Black Widow",img:"black.jpg"},
+	4:{name:"Hulk",img:"hulk.png"},
+	5:{name:"Hawk eye",img:"hawk.jpg"},
+	6:{name:"Vision",img:"vision.jpg"},
+	7:{name:"Wanda",img:"wanda.jpg"},
+	8:{name:"Star lord",img:"starlord.jpg"},
+	9:{name:"Falcon",img:"ironman.jpg"},
+	10:{name:"Thor",img:"thor.jpg"},
+	11:{name:"Iron Man",img:"ironman.jpg"},
+	12:{name:"Captain America",img:"captain.jpg"},
+	13:{name:"Black Widow",img:"black.jpg"}
+
+				}
 
 export function getLoginInfo(){
 	// var status = FB.getLoginStatus(function(res){return res})
@@ -9,7 +27,7 @@ export function getLoginInfo(){
 	var status = JSON.parse(string)
 	if(status.status=="connected"){
 		console.log("found")
-		browserHistory.push('/questions');
+		browserHistory.push('/myApp/questions');
 		var logininfo={
 		type:LOGIN,
 		data : status
@@ -38,8 +56,47 @@ export function getLoginInfo(){
 	return null;
 }
 }
-export function getUserInfo(){
-	console.log("fine")
+export function getUserInfo(status){
+		if(status.status=="connected"){
+			console.log("found")
+			browserHistory.push('/myApp/Avengers/questions');
+			var logininfo={
+			type:LOGIN,
+			data : status
+		}
+
+		return dispatch => {
+		  // Reducers may handle this to set a flag like isFetching
+		  dispatch(LOGINUSER(logininfo))
+		  dispatch(getSuperHero(logininfo))
+		  // Perform the actual API call
+		  return fetch(URL+'/me?fields=picture{url,width,is_silhouette,height},education{school{name}},work{employer{name}},devices,cover{source},name&oauth_token='+logininfo.data.authResponse.accessToken,{method:'GET',headers:{'Access-Control-Request-Headers': '*','Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}}).then(
+		    response => {
+		      // Reducers may handle this to show the data and reset isFetching
+		      
+		      return response.json()
+		    },
+		    error => {
+		      // Reducers may handle this to reset isFetching
+		      dispatch({ type: 'GET_USER_FAILURE', id,  error })
+		      // Rethrow so returned Promise is rejected
+		      throw error
+		    }
+		  ).then((response)=>{console.log(response);dispatch(PROFILE(response))})
+		}
+
+		return null;
+	}
+}
+
+export function getSuperHero(loginInfo){
+	console.log("inside superHero")
+	var superHeroId = loginInfo.data.authResponse.userID % 13;
+	return {
+		type : HERO,
+		data: superHero[superHeroId]
+	}
+
 }
 
 export function PROFILE(data){
@@ -54,5 +111,5 @@ export function LOGINUSER(data){
 }
 
 export function FBLOGIN(){
-	return dispatch=>{FB.getLoginStatus(function(res){console.log("cool");dispatch(getUserInfo(res))},function(res){console.log("found")})}
+	return dispatch=>{FB.getLoginStatus(function(res){console.log(res);dispatch(getUserInfo(res))},function(res){console.log("found")})}
 }

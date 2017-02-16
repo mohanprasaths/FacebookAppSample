@@ -3,7 +3,7 @@ import React from 'react'
 var MainPage = React.createClass({
 	render : function(){
 	return(		<div>
-		Not found
+		Not foundss
 		</div>
 		)
 	}
